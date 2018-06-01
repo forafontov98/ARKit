@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsView" customModule="ARDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="fogSwitch" destination="ykv-zM-inq" id="fU4-S7-Tde"/>
+                <outlet property="rainSwitch" destination="NBy-f0-QBU" id="cEq-0g-AgF"/>
+                <outlet property="snowSwitch" destination="SuF-jB-rIt" id="tgv-mC-ONd"/>
+                <outlet property="visualView" destination="yhh-9o-bdr" id="vJy-4K-jaJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="bRd-fv-vGs">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="245"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhh-9o-bdr">
+                    <rect key="frame" x="0.0" y="0.0" width="355" height="245"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PcV-CY-1Tc">
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="245"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lTL-FQ-45N">
+                    <rect key="frame" x="20" y="43" width="315" height="159"/>
+                    <subviews>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Yi-VY-djq">
+                            <rect key="frame" x="0.0" y="0.0" width="315" height="29"/>
+                            <segments>
+                                <segment title="День"/>
+                                <segment title="Ночь"/>
+                            </segments>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="dayWasChanged:" destination="-1" eventType="valueChanged" id="Edl-ai-Fml"/>
+                            </connections>
+                        </segmentedControl>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="jxI-QK-ZaT">
+                            <rect key="frame" x="0.0" y="48" width="315" height="111"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HoY-o5-oi3">
+                                    <rect key="frame" x="0.0" y="0.0" width="315" height="31"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дождь" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-lb-qb4">
+                                            <rect key="frame" x="0.0" y="0.0" width="266" height="31"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NBy-f0-QBU">
+                                            <rect key="frame" x="266" y="0.0" width="51" height="31"/>
+                                            <color key="onTintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="rainWasChanged:" destination="-1" eventType="valueChanged" id="LAh-Vp-PUk"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUL-5R-9MB">
+                                    <rect key="frame" x="0.0" y="40" width="315" height="31"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Снег" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8p-y4-fB7">
+                                            <rect key="frame" x="0.0" y="0.0" width="266" height="31"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SuF-jB-rIt">
+                                            <rect key="frame" x="266" y="0.0" width="51" height="31"/>
+                                            <color key="onTintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="snowWasChanged:" destination="-1" eventType="valueChanged" id="R0z-U3-qlE"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cp-x1-RMi">
+                                    <rect key="frame" x="0.0" y="80" width="315" height="31"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Туман" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE0-Iz-2h9">
+                                            <rect key="frame" x="0.0" y="0.0" width="266" height="31"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ykv-zM-inq">
+                                            <rect key="frame" x="266" y="0.0" width="51" height="31"/>
+                                            <color key="onTintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="fogWasChanged:" destination="-1" eventType="valueChanged" id="tdq-8L-Zyj"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="fUL-5R-9MB" firstAttribute="leading" secondItem="jxI-QK-ZaT" secondAttribute="leading" id="1yw-ZK-U7o"/>
+                                <constraint firstItem="4cp-x1-RMi" firstAttribute="leading" secondItem="jxI-QK-ZaT" secondAttribute="leading" id="3al-At-1Fk"/>
+                                <constraint firstItem="HoY-o5-oi3" firstAttribute="leading" secondItem="jxI-QK-ZaT" secondAttribute="leading" id="ctx-TI-zL5"/>
+                                <constraint firstAttribute="trailing" secondItem="fUL-5R-9MB" secondAttribute="trailing" id="l7w-jz-NnO"/>
+                                <constraint firstAttribute="trailing" secondItem="HoY-o5-oi3" secondAttribute="trailing" id="no9-FW-1CE"/>
+                                <constraint firstAttribute="trailing" secondItem="4cp-x1-RMi" secondAttribute="trailing" id="x6T-M2-bfw"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jxI-QK-ZaT" secondAttribute="trailing" id="0cb-xd-tds"/>
+                        <constraint firstItem="2Yi-VY-djq" firstAttribute="leading" secondItem="lTL-FQ-45N" secondAttribute="leading" id="8M1-He-uzq"/>
+                        <constraint firstAttribute="trailing" secondItem="2Yi-VY-djq" secondAttribute="trailing" id="DWd-Vt-FCw"/>
+                        <constraint firstItem="2Yi-VY-djq" firstAttribute="top" secondItem="lTL-FQ-45N" secondAttribute="top" id="FYU-ve-1wx"/>
+                        <constraint firstItem="jxI-QK-ZaT" firstAttribute="leading" secondItem="lTL-FQ-45N" secondAttribute="leading" id="OfQ-Mp-zCi"/>
+                        <constraint firstAttribute="bottom" secondItem="jxI-QK-ZaT" secondAttribute="bottom" id="ZAF-p9-eHv"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="1MZ-TL-5QX" firstAttribute="bottom" secondItem="yhh-9o-bdr" secondAttribute="bottom" id="5hg-kM-r11"/>
+                <constraint firstItem="lTL-FQ-45N" firstAttribute="centerX" secondItem="bRd-fv-vGs" secondAttribute="centerX" id="9kR-li-0Na"/>
+                <constraint firstItem="lTL-FQ-45N" firstAttribute="leading" secondItem="1MZ-TL-5QX" secondAttribute="leading" constant="20" id="DKD-gS-roC"/>
+                <constraint firstItem="lTL-FQ-45N" firstAttribute="centerY" secondItem="bRd-fv-vGs" secondAttribute="centerY" id="Jdd-s9-CFv"/>
+                <constraint firstItem="1MZ-TL-5QX" firstAttribute="trailing" secondItem="yhh-9o-bdr" secondAttribute="trailing" id="TlJ-Z2-jyw"/>
+                <constraint firstItem="yhh-9o-bdr" firstAttribute="top" secondItem="bRd-fv-vGs" secondAttribute="top" id="qLp-eq-THS"/>
+                <constraint firstItem="yhh-9o-bdr" firstAttribute="leading" secondItem="bRd-fv-vGs" secondAttribute="leading" id="skl-QR-ATa"/>
+                <constraint firstItem="1MZ-TL-5QX" firstAttribute="trailing" secondItem="lTL-FQ-45N" secondAttribute="trailing" constant="20" id="vA4-4h-33C"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="1MZ-TL-5QX"/>
+            <point key="canvasLocation" x="-111.5" y="272.5"/>
+        </view>
+    </objects>
+</document>
