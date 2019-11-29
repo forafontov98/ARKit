@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="edc-eJ-ZEr">
-    <device id="retina4_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="edc-eJ-ZEr">
+    <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,6 +34,55 @@
                                     <action selector="settingsBtnPressed:" destination="edc-eJ-ZEr" eventType="touchUpInside" id="hAW-Rc-aVz"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KLN-aX-Lxl">
+                                <rect key="frame" x="0.0" y="315" width="667" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79534995719178081" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="kJi-tN-g9v"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="20" id="fLX-ug-INa">
+                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="5" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="previewCell" id="sOx-lI-x62" customClass="PreviewCVC" customModule="ARDemo" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="5" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ppd-aa-Lzf">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ro7-xL-YHp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="O5a-eR-tex">
+                                                    <rect key="frame" x="30" y="30" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="O5a-eR-tex" firstAttribute="centerY" secondItem="ppd-aa-Lzf" secondAttribute="centerY" id="0Cj-t8-3Zz"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ro7-xL-YHp" secondAttribute="bottom" id="FdM-bm-uey"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ro7-xL-YHp" secondAttribute="trailing" id="GVb-9g-Iwy"/>
+                                                <constraint firstItem="Ro7-xL-YHp" firstAttribute="top" secondItem="ppd-aa-Lzf" secondAttribute="top" id="NFK-ne-qGV"/>
+                                                <constraint firstItem="O5a-eR-tex" firstAttribute="centerX" secondItem="ppd-aa-Lzf" secondAttribute="centerX" id="f8O-7B-yVk"/>
+                                                <constraint firstItem="Ro7-xL-YHp" firstAttribute="leading" secondItem="ppd-aa-Lzf" secondAttribute="leading" id="roA-Oq-rsT"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="80" height="80"/>
+                                        <connections>
+                                            <outlet property="preview" destination="Ro7-xL-YHp" id="PbF-Jj-BCA"/>
+                                            <outlet property="spinner" destination="O5a-eR-tex" id="iqc-NQ-iUC"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="edc-eJ-ZEr" id="uyK-iR-Qut"/>
+                                    <outlet property="delegate" destination="edc-eJ-ZEr" id="oNr-PU-HdF"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -43,17 +91,21 @@
                             <constraint firstItem="pdc-of-fKk" firstAttribute="trailing" secondItem="OCo-qu-cpu" secondAttribute="trailing" id="BOz-Yd-vxv"/>
                             <constraint firstItem="pdc-of-fKk" firstAttribute="top" secondItem="f0Z-UV-10a" secondAttribute="top" id="PGA-uf-Gdd"/>
                             <constraint firstItem="pdc-of-fKk" firstAttribute="leading" secondItem="OCo-qu-cpu" secondAttribute="leading" id="VQh-PC-5YZ"/>
+                            <constraint firstAttribute="bottom" secondItem="KLN-aX-Lxl" secondAttribute="bottom" id="WHr-u0-ZUP"/>
+                            <constraint firstItem="KLN-aX-Lxl" firstAttribute="leading" secondItem="OCo-qu-cpu" secondAttribute="leading" id="cef-OG-h4u"/>
                             <constraint firstItem="OCo-qu-cpu" firstAttribute="trailing" secondItem="ZuR-7u-82R" secondAttribute="trailing" constant="20" id="fuo-U7-AvK"/>
+                            <constraint firstItem="KLN-aX-Lxl" firstAttribute="trailing" secondItem="OCo-qu-cpu" secondAttribute="trailing" id="jNA-Bq-geh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OCo-qu-cpu"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="KLN-aX-Lxl" id="twf-KS-SNi"/>
                         <outlet property="sceneView" destination="pdc-of-fKk" id="X6W-uJ-eIE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8O5-TJ-2Yx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="907.1964017991005" y="108"/>
+            <point key="canvasLocation" x="1532.3838080959522" y="900"/>
         </scene>
     </scenes>
     <resources>

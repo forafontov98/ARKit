@@ -12,27 +12,60 @@ import ARKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var sceneView: ARSCNView!
-    var planes = [Plane]()
-    var virtualObj: SCNReferenceNode!
-    var settingsView: SettingsView!
+    // MARK: - IBOutlets
+    @IBOutlet var sceneView:        ARSCNView!
+    @IBOutlet var collectionView:   UICollectionView!
+
     
+    // MARK: - Variables
+    var plane:          Plane?
+    var object:         VObject?
+    
+    var settingsView:   SettingsView!
+        
+    let objects = [VObjectJSON(preview:  "Objects/Object1/Preview1.png",
+                              object:   "Objects/Object1/Object1.scn",
+                              texture:  "Objects/Object1/Texture1.jpg"),
+                    VObjectJSON(preview:  "Objects/Object2/Preview2.png",
+                    object:   "Objects/Object2/Object2.scn",
+                    texture:  "Objects/Object2/Texture2.jpg"),
+                    VObjectJSON(preview:  "Objects/Object1/Preview1.png",
+                    object:   "Objects/Object1/Object1.scn",
+                    texture:  "Objects/Object1/Texture1.jpg")]
+    
+    // MARK: - View Controller LyfeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = false
-        sceneView.autoenablesDefaultLighting = true
+        sceneView.showsStatistics =             false
+        sceneView.autoenablesDefaultLighting =  true
 
-        let scene = SCNScene()
-        sceneView.scene = scene
+        sceneView.scene = SCNScene()
         sceneView.delegate = self
         
         setupViewObjects()
         setupGestures()
     }
     
-    // нажатие на кнопку "Настройки"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
+        
+        sceneView.session.run(configuration)
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        sceneView.session.pause()
+    }
+    
+    // MARK: - IBActions
+
     @IBAction func settingsBtnPressed(_ sender: Any) {
         var offset: CGFloat!
         if settingsView.isShowen {
@@ -48,6 +81,55 @@ class ViewController: UIViewController {
         })
     }
     
+    @objc func placeVirtualObject(tapGesture: UITapGestureRecognizer) {
+        let sceneView = tapGesture.view as! ARSCNView
+        let location = tapGesture.location(in: sceneView)
+        
+        let hitTestResult = sceneView.hitTest(location, types: .existingPlaneUsingExtent)
+        guard let hitRes = hitTestResult.first else {return}
+        
+        createVirtualObject(hitResult: hitRes, objScale: 0.035)
+    }
+    
+    
+    // MARK: - Functions
+    
+    func createVirtualObject(hitResult: ARHitTestResult, objScale: Double = 1.0) {
+        
+        object?.object.removeFromParentNode()
+        
+        let position = SCNVector3(hitResult.worldTransform.columns.3.x,
+                                  hitResult.worldTransform.columns.3.y,
+                                  hitResult.worldTransform.columns.3.z)
+        
+        if let obj = object {
+            let vObjBuilder = VObjectBuilder(obj)
+            vObjBuilder.setPosition(pos: position, scale: objScale)
+            
+            let material = SCNMaterial()
+            material.diffuse.contents = UIColor.clear
+            plane?.planeGeometry.materials = [material]
+            
+            sceneView.scene.rootNode.addChildNode(obj.object)
+            
+            vObjBuilder.setTexture(obj.texture)
+        }
+    }
+    
+    // создает particle system
+    func create(particle: Weather?) {
+        sceneView.scene.removeAllParticleSystems()
+
+        /*
+        guard virtualObj != nil, particle != nil else {return}
+ 
+        if let particleSystem = SCNParticleSystem(named: particle!.nameParticle, inDirectory: nil) {
+            if let childNode = virtualObj.childNode(withName: particle!.nameChildNode, recursively: true) {
+                childNode.addParticleSystem(particleSystem)
+            }
+        } */
+    }
+    
     // отвечает за настройку всех элементов view
     func setupViewObjects() {
         settingsView = SettingsView(frame: CGRect(x: -view.bounds.width / 2, y: 0.0, width: view.bounds.width / 2, height: view.bounds.height))
@@ -59,66 +141,96 @@ class ViewController: UIViewController {
     func setupGestures() {
         let tapGestRec = UITapGestureRecognizer(target: self, action: #selector(placeVirtualObject))
         tapGestRec.numberOfTapsRequired = 1
-        self.sceneView.addGestureRecognizer(tapGestRec)
+        
+        sceneView.addGestureRecognizer(tapGestRec)
     }
     
-    @objc func placeVirtualObject(tapGesture: UITapGestureRecognizer) {
-        let sceneView = tapGesture.view as! ARSCNView
-        let location = tapGesture.location(in: sceneView)
+    func loadObject(_ obj: VObjectJSON, completion: (()->())? = nil) {
         
-        let hitTestResult = sceneView.hitTest(location, types: .existingPlaneUsingExtent)
-        guard let hitRes = hitTestResult.first else {return}
-        
-        createVirtualObject(hitResult: hitRes, objScale: 0.035)
-    }
-    
-    func createVirtualObject(hitResult: ARHitTestResult, objScale: Double = 1.0) {
-        let position = SCNVector3(hitResult.worldTransform.columns.3.x,
-                                  hitResult.worldTransform.columns.3.y,
-                                  hitResult.worldTransform.columns.3.z)
-        let virtualObject = VirtualObject.availableObjects[1]
-        virtualObject.position = position
-        virtualObject.scale = SCNVector3(objScale, objScale, objScale)
-        virtualObject.load()
-        virtualObj = virtualObject
+        FirestorageHelper().downloadFile(obj.object) { data in
+            
+            if let fileName = obj.object.components(separatedBy: "/").last {
+                let path = FileHelper.shared.objectsPath + "/\(fileName)"
 
-        for plane in planes {
-            let material = SCNMaterial()
-            material.diffuse.contents = UIColor.clear
-            plane.planeGeometry.materials = [material]
-        }
-        
-        sceneView.scene.rootNode.addChildNode(virtualObject)
-    }
-    
-    // создает particle system
-    func create(particle: Weather?) {
-        sceneView.scene.removeAllParticleSystems()
-
-        guard virtualObj != nil, particle != nil else {return}
- 
-        if let particleSystem = SCNParticleSystem(named: particle!.nameParticle, inDirectory: nil) {
-            if let childNode = virtualObj.childNode(withName: particle!.nameChildNode, recursively: true) {
-                childNode.addParticleSystem(particleSystem)
+                FileHelper.shared.save(data, to: path)
+                
+                self.object = VObject(objPath: URL(fileURLWithPath: path))
+                
+                FirestorageHelper().downloadFile(obj.texture) { data in
+                    if let image = UIImage(data: data) {
+                        
+                        if let fileName = obj.texture.components(separatedBy: "/").last {
+                            let path = FileHelper.shared.objectsPath + "/\(fileName)"
+                            FileHelper.shared.save(data, to: path)
+                        }
+                        
+                        self.object?.texture = image
+                        if let completion = completion {
+                            completion()
+                        }
+                    }
+                }
             }
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+}
+
+// MARK: - ARSCNViewDelegate
+extension ViewController: ARSCNViewDelegate {
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard anchor is ARPlaneAnchor else {return}
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
+        plane?.removeFromParentNode()
         
-        // Run the view's session
-        sceneView.session.run(configuration)
+        plane = Plane(anchor: anchor as! ARPlaneAnchor)
+        node.addChildNode(plane!)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard plane != nil else {return}
         
-        // Pause the view's session
-        sceneView.session.pause()
+        if let anchor = anchor as? ARPlaneAnchor {
+            plane?.update(anchor: anchor)
+        }
+    }
+}
+
+// MARK: - Extensions
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return objects.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "previewCell", for: indexPath)
+        
+        if let cell = cell as? PreviewCVCProtocol {
+            
+            let previewPath = objects[indexPath.row].preview
+            
+            cell.startLoading()
+            FirestorageHelper().downloadFile(previewPath) { data in
+                if let image = UIImage(data: data) {
+                    cell.config(image: image)
+                    
+                    cell.stopLoading()
+                }
+            }
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let obj = objects[indexPath.row]
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? PreviewCVCProtocol {
+            
+            cell.startLoading()
+            loadObject(obj) {
+                cell.stopLoading()
+            }
+        }
     }
 }

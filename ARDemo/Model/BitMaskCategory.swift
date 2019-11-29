@@ -9,7 +9,7 @@
 import Foundation
 
 struct BitMaskCategory {
-    static let none = 0 << 0
-    static let box = 1 << 0
-    static let plane = 1 << 1
+    static let none =   0 << 0
+    static let box =    1 << 0
+    static let plane =  1 << 1
 }

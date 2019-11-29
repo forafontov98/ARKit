@@ -3,21 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F10EE90520BC71F400EFE895 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F10EE90320BC71F400EFE895 /* spark.png */; };
+		ED1B1F967F16E74C96826F1B /* Pods_ARDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A068473B265BF2AAFB84DD3A /* Pods_ARDemo.framework */; };
+		F10EE90520BC71F400EFE895 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = F10EE90320BC71F400EFE895 /* snow.png */; };
 		F10EE90620BC71F400EFE895 /* snow.scnp in Resources */ = {isa = PBXBuildFile; fileRef = F10EE90420BC71F400EFE895 /* snow.scnp */; };
 		F1114A7B20AB6CB7003D72DC /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1114A7A20AB6CB7003D72DC /* Plane.swift */; };
-		F1114A7F20AC42DD003D72DC /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1114A7E20AC42DD003D72DC /* Box.swift */; };
 		F1114AA120AE21CB003D72DC /* BitMaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1114AA020AE21CB003D72DC /* BitMaskCategory.swift */; };
+		F15003E22385FBE300C548F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F15003E12385FBE300C548F1 /* GoogleService-Info.plist */; };
+		F15003E62386000100C548F1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15003E52386000100C548F1 /* NetworkManager.swift */; };
+		F15003E82386007C00C548F1 /* FirestorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15003E72386007C00C548F1 /* FirestorageHelper.swift */; };
 		F16B01D720443A7700FE2C36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B01D620443A7700FE2C36 /* AppDelegate.swift */; };
 		F16B01D920443A7700FE2C36 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = F16B01D820443A7700FE2C36 /* art.scnassets */; };
 		F16B01DB20443A7700FE2C36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B01DA20443A7700FE2C36 /* ViewController.swift */; };
 		F16B01DE20443A7700FE2C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16B01DC20443A7700FE2C36 /* Main.storyboard */; };
 		F16B01E020443A7700FE2C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16B01DF20443A7700FE2C36 /* Assets.xcassets */; };
 		F16B01E320443A7700FE2C36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16B01E120443A7700FE2C36 /* LaunchScreen.storyboard */; };
+		F17843CE2390597200CEBD2E /* VObjectBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17843CD2390597200CEBD2E /* VObjectBuilder.swift */; };
+		F17843D0239059D600CEBD2E /* VObjectJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17843CF239059D600CEBD2E /* VObjectJSON.swift */; };
 		F17F4DE520BB519F0097850B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F17F4DE320BB519F0097850B /* spark.png */; };
 		F17F4DE620BB519F0097850B /* rain.scnp in Resources */ = {isa = PBXBuildFile; fileRef = F17F4DE420BB519F0097850B /* rain.scnp */; };
 		F17F4DEB20BB6AEC0097850B /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F17F4DEA20BB6AEC0097850B /* SettingsView.xib */; };
@@ -26,15 +31,22 @@
 		F17F4DF220BC1BB70097850B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4DF120BC1BB70097850B /* Extensions.swift */; };
 		F17F4DFA20BC2FE80097850B /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = F17F4DF820BC2FE80097850B /* fog.png */; };
 		F17F4DFB20BC2FE80097850B /* fog.scnp in Resources */ = {isa = PBXBuildFile; fileRef = F17F4DF920BC2FE80097850B /* fog.scnp */; };
-		F182AD4F20AE310A00CCB8CB /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182AD4E20AE310A00CCB8CB /* VirtualObject.swift */; };
+		F1AE277D238ED87D00FB68CC /* PreviewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE277C238ED87D00FB68CC /* PreviewCVC.swift */; };
+		F1AE277F238F01F300FB68CC /* VObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE277E238F01F300FB68CC /* VObject.swift */; };
+		F1AE2781238F0EC900FB68CC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE2780238F0EC900FB68CC /* FileHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F10EE90320BC71F400EFE895 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		448E8366021968BDC45760A3 /* Pods-ARDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDemo.debug.xcconfig"; path = "Target Support Files/Pods-ARDemo/Pods-ARDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A068473B265BF2AAFB84DD3A /* Pods_ARDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E9D3457700FF0758B7CA02 /* Pods-ARDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDemo.release.xcconfig"; path = "Target Support Files/Pods-ARDemo/Pods-ARDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F10EE90320BC71F400EFE895 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
 		F10EE90420BC71F400EFE895 /* snow.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = snow.scnp; sourceTree = "<group>"; };
 		F1114A7A20AB6CB7003D72DC /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
-		F1114A7E20AC42DD003D72DC /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		F1114AA020AE21CB003D72DC /* BitMaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitMaskCategory.swift; sourceTree = "<group>"; };
+		F15003E12385FBE300C548F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F15003E52386000100C548F1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F15003E72386007C00C548F1 /* FirestorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestorageHelper.swift; sourceTree = "<group>"; };
 		F16B01D320443A7700FE2C36 /* ARDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16B01D620443A7700FE2C36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F16B01D820443A7700FE2C36 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -43,6 +55,8 @@
 		F16B01DF20443A7700FE2C36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F16B01E220443A7700FE2C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F16B01E420443A7700FE2C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F17843CD2390597200CEBD2E /* VObjectBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VObjectBuilder.swift; sourceTree = "<group>"; };
+		F17843CF239059D600CEBD2E /* VObjectJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VObjectJSON.swift; sourceTree = "<group>"; };
 		F17F4DE320BB519F0097850B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		F17F4DE420BB519F0097850B /* rain.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = rain.scnp; sourceTree = "<group>"; };
 		F17F4DEA20BB6AEC0097850B /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
@@ -51,7 +65,9 @@
 		F17F4DF120BC1BB70097850B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F17F4DF820BC2FE80097850B /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
 		F17F4DF920BC2FE80097850B /* fog.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = fog.scnp; sourceTree = "<group>"; };
-		F182AD4E20AE310A00CCB8CB /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
+		F1AE277C238ED87D00FB68CC /* PreviewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCVC.swift; sourceTree = "<group>"; };
+		F1AE277E238F01F300FB68CC /* VObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VObject.swift; sourceTree = "<group>"; };
+		F1AE2780238F0EC900FB68CC /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,17 +75,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED1B1F967F16E74C96826F1B /* Pods_ARDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41ADD316C0D4023C673FAAEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A068473B265BF2AAFB84DD3A /* Pods_ARDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8BE6FACDE1DFFA2A5EEC1DB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				448E8366021968BDC45760A3 /* Pods-ARDemo.debug.xcconfig */,
+				C9E9D3457700FF0758B7CA02 /* Pods-ARDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F15003E32385FF2E00C548F1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F17F4DEF20BC11340097850B /* Constants.swift */,
+				F17F4DF120BC1BB70097850B /* Extensions.swift */,
+				F16B01D620443A7700FE2C36 /* AppDelegate.swift */,
+				F16B01E420443A7700FE2C36 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F15003E42385FF9000C548F1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F15003E52386000100C548F1 /* NetworkManager.swift */,
+				F15003E72386007C00C548F1 /* FirestorageHelper.swift */,
+				F1AE2780238F0EC900FB68CC /* FileHelper.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		F16B01CA20443A7700FE2C36 = {
 			isa = PBXGroup;
 			children = (
 				F16B01D520443A7700FE2C36 /* ARDemo */,
 				F16B01D420443A7700FE2C36 /* Products */,
+				8BE6FACDE1DFFA2A5EEC1DB5 /* Pods */,
+				41ADD316C0D4023C673FAAEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,19 +141,30 @@
 		F16B01D520443A7700FE2C36 /* ARDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F15003E12385FBE300C548F1 /* GoogleService-Info.plist */,
 				F17F4DE920BB67710097850B /* Model */,
 				F17F4DE720BB674A0097850B /* View */,
 				F17F4DE820BB67690097850B /* Controller */,
-				F17F4DEF20BC11340097850B /* Constants.swift */,
-				F17F4DF120BC1BB70097850B /* Extensions.swift */,
-				F16B01E420443A7700FE2C36 /* Info.plist */,
+				F15003E42385FF9000C548F1 /* Network */,
+				F15003E32385FF2E00C548F1 /* Supporting Files */,
 			);
 			path = ARDemo;
+			sourceTree = "<group>";
+		};
+		F17843CC2390595D00CEBD2E /* VirtualObject */ = {
+			isa = PBXGroup;
+			children = (
+				F1AE277E238F01F300FB68CC /* VObject.swift */,
+				F17843CD2390597200CEBD2E /* VObjectBuilder.swift */,
+				F17843CF239059D600CEBD2E /* VObjectJSON.swift */,
+			);
+			path = VirtualObject;
 			sourceTree = "<group>";
 		};
 		F17F4DE720BB674A0097850B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F1AE277B238ED85700FB68CC /* Cells */,
 				F17F4DEE20BB6E840097850B /* Night view */,
 				F17F4DF720BC2F490097850B /* Particle Systems */,
 				F16B01E120443A7700FE2C36 /* LaunchScreen.storyboard */,
@@ -110,7 +178,6 @@
 		F17F4DE820BB67690097850B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F16B01D620443A7700FE2C36 /* AppDelegate.swift */,
 				F16B01DA20443A7700FE2C36 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -119,10 +186,9 @@
 		F17F4DE920BB67710097850B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F182AD4E20AE310A00CCB8CB /* VirtualObject.swift */,
 				F1114AA020AE21CB003D72DC /* BitMaskCategory.swift */,
-				F1114A7E20AC42DD003D72DC /* Box.swift */,
 				F1114A7A20AB6CB7003D72DC /* Plane.swift */,
+				F17843CC2390595D00CEBD2E /* VirtualObject */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,7 +214,7 @@
 		F17F4DF420BC2F0E0097850B /* Snow */ = {
 			isa = PBXGroup;
 			children = (
-				F10EE90320BC71F400EFE895 /* spark.png */,
+				F10EE90320BC71F400EFE895 /* snow.png */,
 				F10EE90420BC71F400EFE895 /* snow.scnp */,
 			);
 			path = Snow;
@@ -173,6 +239,14 @@
 			path = "Particle Systems";
 			sourceTree = "<group>";
 		};
+		F1AE277B238ED85700FB68CC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F1AE277C238ED87D00FB68CC /* PreviewCVC.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F16B01E720443A7700FE2C36 /* Build configuration list for PBXNativeTarget "ARDemo" */;
 			buildPhases = (
+				E524EFE7F879B6A12D57ABEC /* [CP] Check Pods Manifest.lock */,
 				F16B01CF20443A7700FE2C36 /* Sources */,
 				F16B01D020443A7700FE2C36 /* Frameworks */,
 				F16B01D120443A7700FE2C36 /* Resources */,
+				81CB7CD879426227BD7EA670 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,7 +286,7 @@
 				};
 			};
 			buildConfigurationList = F16B01CE20443A7700FE2C36 /* Build configuration list for PBXProject "ARDemo" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -237,8 +313,9 @@
 				F16B01D920443A7700FE2C36 /* art.scnassets in Resources */,
 				F17F4DFA20BC2FE80097850B /* fog.png in Resources */,
 				F16B01E320443A7700FE2C36 /* LaunchScreen.storyboard in Resources */,
-				F10EE90520BC71F400EFE895 /* spark.png in Resources */,
+				F10EE90520BC71F400EFE895 /* snow.png in Resources */,
 				F17F4DFB20BC2FE80097850B /* fog.scnp in Resources */,
+				F15003E22385FBE300C548F1 /* GoogleService-Info.plist in Resources */,
 				F16B01E020443A7700FE2C36 /* Assets.xcassets in Resources */,
 				F10EE90620BC71F400EFE895 /* snow.scnp in Resources */,
 				F16B01DE20443A7700FE2C36 /* Main.storyboard in Resources */,
@@ -248,6 +325,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		81CB7CD879426227BD7EA670 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARDemo/Pods-ARDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARDemo/Pods-ARDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARDemo/Pods-ARDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E524EFE7F879B6A12D57ABEC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F16B01CF20443A7700FE2C36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -255,13 +374,18 @@
 			files = (
 				F16B01DB20443A7700FE2C36 /* ViewController.swift in Sources */,
 				F17F4DF220BC1BB70097850B /* Extensions.swift in Sources */,
-				F1114A7F20AC42DD003D72DC /* Box.swift in Sources */,
-				F182AD4F20AE310A00CCB8CB /* VirtualObject.swift in Sources */,
+				F15003E82386007C00C548F1 /* FirestorageHelper.swift in Sources */,
+				F17843D0239059D600CEBD2E /* VObjectJSON.swift in Sources */,
+				F15003E62386000100C548F1 /* NetworkManager.swift in Sources */,
 				F1114AA120AE21CB003D72DC /* BitMaskCategory.swift in Sources */,
 				F1114A7B20AB6CB7003D72DC /* Plane.swift in Sources */,
 				F17F4DED20BB6E7F0097850B /* SettingsView.swift in Sources */,
+				F17843CE2390597200CEBD2E /* VObjectBuilder.swift in Sources */,
+				F1AE2781238F0EC900FB68CC /* FileHelper.swift in Sources */,
+				F1AE277D238ED87D00FB68CC /* PreviewCVC.swift in Sources */,
 				F16B01D720443A7700FE2C36 /* AppDelegate.swift in Sources */,
 				F17F4DF020BC11340097850B /* Constants.swift in Sources */,
+				F1AE277F238F01F300FB68CC /* VObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,19 +513,24 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		F16B01E820443A7700FE2C36 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 448E8366021968BDC45760A3 /* Pods-ARDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GYMF6NUDH3;
-				INFOPLIST_FILE = "$(SRCROOT)/ARDemo/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = "$(SRCROOT)/ARDemo/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = forafontov.ARDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -411,12 +540,16 @@
 		};
 		F16B01E920443A7700FE2C36 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E9D3457700FF0758B7CA02 /* Pods-ARDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GYMF6NUDH3;
-				INFOPLIST_FILE = "$(SRCROOT)/ARDemo/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = "$(SRCROOT)/ARDemo/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = forafontov.ARDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
